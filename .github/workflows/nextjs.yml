@@ -62,8 +62,11 @@ jobs:
           port: ${{ secrets.PORT }}
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            whoami
-            ls -al
+            cd ./corona_dino_studio
+            git pull
+            npm install
+            npm run build
+            pm2 restart app1
       - name: Setup Pages
         uses: actions/configure-pages@v3
         with:
